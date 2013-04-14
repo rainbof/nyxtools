@@ -37,5 +37,13 @@ public class NyxTools {
 	public String getAuthToken() {
 		return persistence.getAuthToken();
 	}
+	
+	public String getUserAgentPrefix(){
+		return persistence.getUserAgentPrefix();
+	}
+	
+	public boolean setUserAgentPrefix(String uaPrefix){
+		return persistence.setUserAgentPrefix(uaPrefix);
+	}
 
 }

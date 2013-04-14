@@ -11,7 +11,7 @@ public class NyxToolsPersistence {
 
 	private SharedPreferences preferences;
 
-	public NyxToolsPersistence(Context _context) {
+	protected NyxToolsPersistence(Context _context) {
 		preferences = PreferenceManager.getDefaultSharedPreferences(_context);
 	}
 
@@ -56,6 +56,17 @@ public class NyxToolsPersistence {
 
 	protected String getAuthToken() {
 		return getString(S.P_AUTH_TOKEN, null);
+	}
+	
+	protected boolean setUserAgentPrefix(String uaPrefix){
+		if(uaPrefix == null || uaPrefix.length() < 1)
+			uaPrefix = "NyxToolsDefault";
+		putString(S.P_USER_AGENT, uaPrefix);
+		return commit();
+	}
+	
+	protected String getUserAgentPrefix(){
+		return getString(S.P_USER_AGENT, null);
 	}
 
 }
