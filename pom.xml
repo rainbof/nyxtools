@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>NyxTools</name>
   <build>
+
     <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
