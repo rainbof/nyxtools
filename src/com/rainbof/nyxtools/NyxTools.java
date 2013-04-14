@@ -3,6 +3,9 @@ package com.rainbof.nyxtools;
 import android.content.Context;
 import android.util.Log;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.rainbof.nyxtools.calls.test.TestCall;
+import com.rainbof.nyxtools.calls.test.TestCallListener;
 import com.rainbof.nyxtools.util.S;
 
 public class NyxTools {
@@ -53,6 +56,18 @@ public class NyxTools {
 
 	public boolean setUserAgentPrefix(String uaPrefix) {
 		return persistence.setUserAgentPrefix(uaPrefix);
+	}
+	
+	public void runTestAsyncCall(TestCallListener listener){
+		new TestCall().execute(getClient(), listener);
+	}
+
+	private volatile AsyncHttpClient client;
+	
+	private synchronized AsyncHttpClient getClient() {
+		if(client == null)
+			client = new AsyncHttpClient();
+		return client;
 	}
 
 }
