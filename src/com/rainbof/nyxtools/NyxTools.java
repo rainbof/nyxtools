@@ -21,5 +21,13 @@ public class NyxTools {
 			_context = _context.getApplicationContext();
 		persistence = new NyxToolsPersistence(_context);
 	}
+	
+	public boolean setUsername(String username){
+		return persistence.setUsername(username);
+	}
+	
+	public boolean setAuthToken(String authToken){
+		return persistence.setAuthToken(authToken);
+	}
 
 }

@@ -23,7 +23,7 @@ public class NyxToolsPersistence {
 		return edit().commit();
 	}
 
-	public boolean setUsername(String username) {
+	protected boolean setUsername(String username) {
 		if (username == null || username.length() <= 3) {
 			Log.e(S.TAG + "setUsername", "Username must not be null or shorter than 3 letters");
 			return false;
@@ -31,7 +31,7 @@ public class NyxToolsPersistence {
 		return edit().putString(S.P_USERNAME, username).commit();
 	}
 	
-	public boolean setAuthToken(String authToken) {
+	protected boolean setAuthToken(String authToken) {
 		if(authToken == null || authToken.length() < 1){
 			Log.e(S.TAG + "setAuthToken", "AuthToken must not be null");
 			return false;
