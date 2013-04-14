@@ -1,6 +1,9 @@
 package com.rainbof.nyxtools;
 
 import android.content.Context;
+import android.util.Log;
+
+import com.rainbof.nyxtools.util.S;
 
 public class NyxTools {
 
@@ -17,8 +20,14 @@ public class NyxTools {
 	}
 
 	protected NyxTools(Context _context) {
-		if (_context.getApplicationContext() != null)
-			_context = _context.getApplicationContext();
+		try {
+			if (_context.getApplicationContext() != null)
+				_context = _context.getApplicationContext();
+		} catch (Exception e) {
+			Log.e(S.TAG + "getApplicationContext",
+					"You must call getInstance() after super.onCreate(...)");
+			throw new IllegalStateException();
+		}
 		persistence = new NyxToolsPersistence(_context);
 	}
 
@@ -37,12 +46,12 @@ public class NyxTools {
 	public String getAuthToken() {
 		return persistence.getAuthToken();
 	}
-	
-	public String getUserAgentPrefix(){
+
+	public String getUserAgentPrefix() {
 		return persistence.getUserAgentPrefix();
 	}
-	
-	public boolean setUserAgentPrefix(String uaPrefix){
+
+	public boolean setUserAgentPrefix(String uaPrefix) {
 		return persistence.setUserAgentPrefix(uaPrefix);
 	}
 
