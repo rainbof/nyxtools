@@ -2,7 +2,7 @@ package com.rainbof.nyxtools;
 
 public class NyxTools {
 
-	private static NyxTools mInstance;
+	private volatile static NyxTools mInstance;
 
 	public static NyxTools getInstance() {
 		if (mInstance == null) {
@@ -13,7 +13,7 @@ public class NyxTools {
 		return mInstance;
 	}
 	
-	private NyxTools(){
+	protected NyxTools(){
 		
 	}
 
