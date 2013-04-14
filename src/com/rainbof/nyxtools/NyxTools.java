@@ -15,19 +15,27 @@ public class NyxTools {
 		}
 		return mInstance;
 	}
-	
-	protected NyxTools(Context _context){
-		if(_context.getApplicationContext() != null)
+
+	protected NyxTools(Context _context) {
+		if (_context.getApplicationContext() != null)
 			_context = _context.getApplicationContext();
 		persistence = new NyxToolsPersistence(_context);
 	}
-	
-	public boolean setUsername(String username){
+
+	public boolean setUsername(String username) {
 		return persistence.setUsername(username);
 	}
-	
-	public boolean setAuthToken(String authToken){
+
+	public String getUsername() {
+		return persistence.getUsername();
+	}
+
+	public boolean setAuthToken(String authToken) {
 		return persistence.setAuthToken(authToken);
+	}
+
+	public String getAuthToken() {
+		return persistence.getAuthToken();
 	}
 
 }

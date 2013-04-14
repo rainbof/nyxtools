@@ -31,12 +31,20 @@ public class NyxToolsPersistence {
 		return edit().putString(S.P_USERNAME, username).commit();
 	}
 	
+	protected String getUsername(){
+		return preferences.getString(S.P_USERNAME, null);
+	}
+	
 	protected boolean setAuthToken(String authToken) {
 		if(authToken == null || authToken.length() < 1){
 			Log.e(S.TAG + "setAuthToken", "AuthToken must not be null");
 			return false;
 		}
 		return edit().putString(S.P_AUTH_TOKEN, authToken).commit();
+	}
+	
+	protected String getAuthToken(){
+		return preferences.getString(S.P_AUTH_TOKEN, null);
 	}
 
 }
