@@ -2,7 +2,7 @@ package com.rainbof.nyxtools.util;
 
 public final class S {
 
-	public static final String TAG = "NyxTools";
+	public static final String TAG = "NyxTools ";
 	// preferences
 	public static final String P_PREFIX = "com.rainbof.nyxtools.prefs.";
 	public static final String P_USERNAME = P_PREFIX + "username";
