@@ -31,6 +31,8 @@ public class NyxToolsPersistence {
 		return preferences.getString(key, defValue);
 	}
 
+	// Username
+	
 	protected boolean setUsername(String username) {
 		if (username == null || username.length() <= 3) {
 			Log.e(S.TAG + "setUsername",
@@ -59,14 +61,12 @@ public class NyxToolsPersistence {
 	}
 	
 	protected boolean setUserAgentPrefix(String uaPrefix){
-		if(uaPrefix == null || uaPrefix.length() < 1)
-			uaPrefix = "NyxToolsDefault";
 		putString(S.P_USER_AGENT, uaPrefix);
 		return commit();
 	}
 	
 	protected String getUserAgentPrefix(){
-		return getString(S.P_USER_AGENT, null);
+		return getString(S.P_USER_AGENT, "NyxTools");
 	}
 
 }
