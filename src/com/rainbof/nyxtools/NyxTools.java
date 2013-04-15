@@ -14,8 +14,8 @@ public class NyxTools {
 	private NyxToolsPersistence persistence;
 
 	public static NyxTools getInstance(Context _context) {
-		if (mInstance == null) {
-			synchronized (NyxTools.class) {
+		synchronized (NyxTools.class) {
+			if (mInstance == null) {
 				mInstance = new NyxTools(_context);
 			}
 		}
